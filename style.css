@@ -1,0 +1,83 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+/* we changed the url to make it match with what font we want */
+
+* {
+    box-sizing: border-box;
+    /* it orginzise the margin and padding */
+}
+
+
+body {
+    font-family: 'muli', sans-serif;
+    display: flex;
+    flex-direction: column; 
+    /* makes the text go down not on the same line */
+    justify-content: center;
+    align-items: center;
+    /* centers the div */
+    height: 100vh;
+    overflow: hidden;
+    /* limits the content in the box and hides the rest of the content*/
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.panel {
+    background-size: auto 100%;
+    /* background-size: cover; */
+    /* use cover for big screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    /* does not let the img to repeat itself */
+    height: 80vh;
+    /* makes the images taller */
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5;
+    /* this makes them all evenly sized */
+    margin: 10px;
+    /* we add a margin to make them take space between each */
+    position: relative;
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+    font-size: 24px;
+    position: absolute;
+    /* we absolute it cuz we want it inside its relative box */
+    bottom: 20px;
+    left: 20px;
+    /* we bottom left it to be at the bottom */
+    margin: 0;
+    opacity: 0;
+    /* you set the margin of the h3 to 0 and set the opacity to 0 to hide the text */
+}
+
+.panel.active {
+    flex: 5;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+    /* we make the text ease in when we make an action to it */
+}
+
+@media(max-width: 480px) {
+    .container {
+        width: 100vw;
+    }
+    /* it makes the image change on screens that are lower than 480px */
+
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+        display: none;
+    }
+    /* here it hides card 4 & 5 on small screens */
+}
